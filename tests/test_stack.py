@@ -20,5 +20,27 @@ def test_stack_push():
     s.push(3)
     assert s.top.data == 3
 
+def test_pop():
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    assert stack.pop() == 3
+    assert stack.pop() == 2
+    assert stack.pop() == 1
+    assert stack.pop() is None
+
+    stack.push(1)
+    assert stack.pop() == 1
+    assert stack.pop() is None
+
+    stack.push("Word")
+    stack.push("12")
+    stack.push(123.4)
+
+    assert stack.pop() == 123.4
+    assert stack.pop() == "12"
+    assert stack.pop() == "Word"
+
 
 
